@@ -1,8 +1,8 @@
 {
   "name": "SQLiteInterview",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Armindo Malafaia Neto",
+  "homepage": "https://malafaia.live/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
