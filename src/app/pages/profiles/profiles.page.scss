@@ -4,8 +4,16 @@ ion-select {
 
 ion-label.dark {
   background-color: darkgray;
+  border-radius: 35%;
+  padding: 5px 15px;
+  right: -10px;
+  top: -10px;
 }
 
 ion-title {
   background-color: brown;
+}
+
+h2.center {
+  text-align: center;
 }

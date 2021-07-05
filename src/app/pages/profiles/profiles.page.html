@@ -31,16 +31,17 @@
   </ion-list>
   <ion-item>
     <ion-label class="dark">
-      <h2>Age - Lowest: {{this.summaryService.showSummary().lowestAge}} - Highest:
-        {{this.summaryService.showSummary().highestAge}} - Average:
-        {{this.summaryService.showSummary().average | number:'1.2-2'}}</h2>
-    </ion-label>
+      <h2 class="center">- Age Summary -</h2>
+      <h2 class="center">Lowest: {{this.summaryService.showSummary().lowestAge}} - Highest:
+        {{this.summaryService.showSummary().highestAge}}</h2>
+        <h2 class="center">Average: {{this.summaryService.showSummary().average | number:'1.2-2'}}</h2>
+      </ion-label>
   </ion-item>
 
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-    <ion-title>Dev: Armindo Malafaia Neto</ion-title>
+    <ion-title>Dev: Armindo Malafaia</ion-title>
   </ion-toolbar>
 </ion-footer>

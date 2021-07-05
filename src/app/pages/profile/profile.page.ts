@@ -14,7 +14,7 @@ export class ProfilePage implements OnInit {
     id: 0,
     firstname: '',
     lastname: '',
-    sex: '',
+    sex: 'Male',
     birthday: null,
   };
 
