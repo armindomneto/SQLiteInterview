@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SummaryService {
+  constructor() {}
 
-  constructor() { }
+  showSummary() {
+    return JSON.parse(localStorage.getItem('Summary'));
+  }
 }

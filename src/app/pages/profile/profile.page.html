@@ -1,9 +1,38 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>profile</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="profiles"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+    <ion-buttons slot="end" *ngIf="profile">
+      <ion-button (click)="delete()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-item>
+    <ion-label position="stacked">What's your first name?</ion-label>
+    <ion-input [(ngModel)]="profile.firstname" placeholder="First Name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">What's your last name?</ion-label>
+    <ion-input [(ngModel)]="profile.lastname" placeholder="Last Name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">What's your sex?</ion-label>
+    <ion-select [(ngModel)]="profile.sex" value="{{profile.sex}}" interface="action-sheet">
+      <ion-select-option value="Female">Female</ion-select-option>
+      <ion-select-option value="Male">Male</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">What's your birthday?</ion-label>
+    <ion-datetime [(ngModel)]="profile.birthday" placeholder="Birthday" display-format="MM-DD-YYYY"></ion-datetime>
+  </ion-item>
+  <ion-button *ngIf="profile.id > 0" expand="block" (click)="updateProfile()">Update Profile Info</ion-button>
+  <ion-button *ngIf="profile.id === 0" expand="block" (click)="addProfile()">Add Profile Info</ion-button>
 
 </ion-content>

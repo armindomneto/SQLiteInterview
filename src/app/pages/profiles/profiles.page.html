@@ -1,9 +1,46 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>profiles</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Profiles</ion-title>
+    <ion-buttons slot="end" *ngIf="profile">
+      <ion-button [routerLink]="['/', 'profiles', '0']">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+
+  <ion-list>
+    <ion-searchbar [(ngModel)]="searchprofile" [showCancelButton]="shouldShowCancel" (ionChange)="getProfiles()">
+    </ion-searchbar>
+    <ion-select [(ngModel)]="filtersex" value="{{filtersex}}" interface="action-sheet" (ionChange)="getProfiles()"
+      placeholder="Filter by sex">
+      <ion-select-option value="">Female/Male</ion-select-option>
+      <ion-select-option value="Female">Female</ion-select-option>
+      <ion-select-option value="Male">Male</ion-select-option>
+    </ion-select>
+    <ion-item button *ngFor="let prof of profiles" [routerLink]="['/', 'profiles', prof.id]">
+      <ion-label>
+        <h2>{{ prof.firstname }}</h2>
+        <p>{{ prof.lastname }}</p>
+        <p>{{ prof.sex }}</p>
+        <p>{{ prof.birthday | date:'MM-dd-yyyy'}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <ion-label class="dark">
+      <h2>Age - Lowest: {{this.summaryService.showSummary().lowestAge}} - Highest:
+        {{this.summaryService.showSummary().highestAge}} - Average:
+        {{this.summaryService.showSummary().average | number:'1.2-2'}}</h2>
+    </ion-label>
+  </ion-item>
 
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Dev: Armindo Malafaia Neto</ion-title>
+  </ion-toolbar>
+</ion-footer>
